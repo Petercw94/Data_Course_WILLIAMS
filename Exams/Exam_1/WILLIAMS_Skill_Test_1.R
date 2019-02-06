@@ -57,29 +57,38 @@ dev.off()
 # With other samples, he had a relatively massive improvement over her.
 # Your task here is to write some code that tells us: in which extraction YEAR, 
 # was Ben's performance the lowest RELATIVE TO Katy's performance?
+df$Year_Collected = as.factor(df$Year_Collected)
 
 modK = summary(df$DNA_Concentration_Katy)
 modB = summary(df$DNA_Concentration_Ben)
 modK
 modB
 modK > modB
-
-df$Year_Collected = as.factor(df$Year_Collected)
 df$diff = df$DNA_Concentration_Ben - df$DNA_Concentration_Katy 
+
+
+
+bdiffk = c( ) 
+x = 1
+for(i in levels(df$Year_Collected)){
+  bdiffk[x] = mean(df[df$Year_Collected == i,"diff"])
+  x = x+1 
+} 
+
+df_difference = data.frame("Year"=levels(df$Year_Collected), "Average_difference" = bdiffk)
+min(df_difference$Average_difference) -> d
+df_difference[which(df_difference$Average_difference == d), ]
+
+# Okay, that was super messy, but I finally got it to print out the year in which the average difference between
+# Ben and Kay's data was the lowest
+
+#This is just a plot to show that my year was right
+
+
 ggplot(df, aes(x=Year_Collected, y=diff)) +
   geom_boxplot()
 
 
-new_vector() 
-x = 1
-
-for(i in levels(df$Year_Collected)){
-  new_vector[x] = mean(df[df$Year_Collected == i,"diff"])
-  x = x+1 
-} 
-
-df_difference = data.frame("Year"=levels(df$Year_Collected), "Average_difference" = new_vector)
-df_difference[which(df$Year_Collected == min(df$Year_Collected), ]
 
 #For this final problem, let's just look at Ben's DNA concentration values. 
 #I think Katy messed up her PCRs, and at any rate, we can't use them for sequencing.
@@ -94,7 +103,7 @@ df_difference[which(df$Year_Collected == min(df$Year_Collected), ]
 #Once you have this new data frame of averages by year, 
 #write some code that shows which extraction year has the highest average DNA concentration 
 #(and what that concentration is)
-new_vector()
+new_vector = c()
 x = 1
 
 for(i in levels(df$Year_Collected)){
@@ -103,4 +112,10 @@ for(i in levels(df$Year_Collected)){
 } 
   
 
-df2 = data.frame("Year" = levels(df$Year_Collected), "Ben's Average" = new_vector )
+df2 = data.frame("Year" = levels(df$Year_Collected), "Bens_Average_con" = new_vector )
+
+write.csv(df2, "Ben_average_by_year.csv", quote = FALSE)
+
+
+#Here is the code to show the highest average value and its accompanying year
+df2[which(df2$Ben.s.Average == max(df2$Ben.s.Average)), ]
