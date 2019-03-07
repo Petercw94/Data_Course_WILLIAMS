@@ -109,10 +109,11 @@ ggplot(atmos, aes(x = rownames(atmos), y = Diversity)) +
 jpeg("./WILLIAMS_exam2_plot2.jpeg")
 ggplot(atmos, aes(x = rownames(atmos), y = Diversity)) +
   geom_jitter() + 
-  geom_jitter(aes(y = atmos$mod1pred), color = "Red") +
-  geom_jitter(aes(y = atmos$mod2pred), color = "Blue") +
+  geom_jitter(aes(y = atmos$mod1pred, color = "Red")) +
+  geom_jitter(aes(y = atmos$mod2pred, color = "Blue")) +
   ggtitle("Predicted V. Actual Diversity values based on Models") +
-  xlab("Value")
+  xlab("Value") + 
+  scale_color_discrete(labels = c("Mod2","Mod1"))
 dev.off()
 # Write code to show the predicted values of Diversity for each model using the hypothetical data 
 # found in hyp_data.csv (10 points)
