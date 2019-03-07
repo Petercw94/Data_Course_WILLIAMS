@@ -81,7 +81,7 @@ sqrt(sum(residuals(mod2)^2)/df.residual(mod2))
 mean(residuals(mod1)^2)
 mean(residuals(mod2)^2)
 
-# It appears that the models are significantly different and mod2 is a better fit for our data than mod1 
+# It appears that the models are significantly different and mod2 is a better fit for our data than mod1 ####
 
 # Use these both models to predict Diversity values in the data set (10 points)
 atmos = add_predictions(atmos, mod1, var = "mod1pred")
@@ -98,11 +98,22 @@ mean(atmos$DIFF.mod2)
 
 ggplot(atmos, aes(x = rownames(atmos), y = Diversity)) +
   geom_jitter() + 
+  geom_jitter(aes(y = atmos$mod1pred, color = "Red")) +
+  geom_jitter(aes(y = atmos$mod2pred, color = "Blue")) +
+  ggtitle("Predicted V. Actual Diversity values based on Models") +
+  xlab("Value") + 
+  scale_color_discrete(labels = c("Mod2","Mod1"))
+ 
+
+# Export this plot
+jpeg("./WILLIAMS_exam2_plot2.jpeg")
+ggplot(atmos, aes(x = rownames(atmos), y = Diversity)) +
+  geom_jitter() + 
   geom_jitter(aes(y = atmos$mod1pred), color = "Red") +
   geom_jitter(aes(y = atmos$mod2pred), color = "Blue") +
   ggtitle("Predicted V. Actual Diversity values based on Models") +
   xlab("Value")
-
+dev.off()
 # Write code to show the predicted values of Diversity for each model using the hypothetical data 
 # found in hyp_data.csv (10 points)
 new.data = read.csv("hyp_data.csv")
