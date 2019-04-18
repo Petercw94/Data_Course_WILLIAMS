@@ -56,7 +56,7 @@ sum2 = df1 %>%
 sum3 = df2  %>%
   summarise(max(hp))
 
-sink("./max.horsepower.of.each.df.txt")
+sink("./hp_maximums.txt")
 paste("Original =", sum1, "max hp")
 paste("Automatic =", sum2, "max hp")
 paste("Max200 =", sum3, "max hp")
