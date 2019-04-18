@@ -1,0 +1,39 @@
+---
+title: "Assignment_4_questions"
+author: "pwilliams"
+date: "4/18/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Assignment 4 Questions:
+
+  + **1. What other stuff does read.csv() do automatically?**  
+  
+  *read.csv() automatically converts factors (or variables that should be factors) into factors. This can be avoided with the as.is argument (set to TRUE)*  
+  
+  + **2. How is it different from read.csv2()?**  
+  
+  *read.csv2() was made for the Europeans, and other countries, that use commas the way we use periods.*  
+  
+  + **3. Why does read.csv2() even exist?**  
+  
+  *For those wacky Europeans (see above answer)*  
+  
+  + **4. How could I change the parameters of read.csv() to make it so the class of the "State" column is "character" instead of "factor?"**  
+  
+  *The first option is to change the as.is argument to TRUE. The second, and much longer way, is to manually input each variables class with the colClasses argument*  
+  
+  + **5. What command would give the summary stats for ONLY the Home.Value column?**  
+  
+  *summary(df)[4] or summary(df$Home.Value)*  
+  
+  + **6. What value is returned by the command: names(df)[4]  ?**  
+  
+  *"Home.Value", the name of the fourth column of df*
+  
+
+ 

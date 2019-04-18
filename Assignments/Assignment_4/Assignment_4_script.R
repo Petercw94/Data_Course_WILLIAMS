@@ -17,17 +17,21 @@ library(ggplot2)
 library(tidyverse)
 
 
-read.delim("ITS_mapping.csv", sep = "\t", stringsAsFactors = FALSE) -> df2 #ITS_mapping.csv is really a tab separated file, so running it as a tsv makes it 
+read.delim("ITS_mapping.csv", sep = "\t", stringsAsFactors = TRUE) -> df2 #ITS_mapping.csv is really a tab separated file, so running it as a tsv makes it 
 # readable .... How would I run this same code with read_tsv? I want to change the argument stringsAsFactors, but it 
 # doesnt seem to be an available function.
 head(df2, n=10)
 tail(df2, n=10)
 glimpse(df2)
 dim(df2)
+# summarize the columns
+summary(df2$Ecosystem)
+summary(df2$Island)
+summary(df2$Host_Type)
+summary(df2$F_Primer)
 
-summary(df2) 
-
-png("silly_boxplot.png")
+# make the boxplot
 ggplot(df2, aes(x=Ecosystem, y=Lat)) +
-  geom_boxplot()
-dev.off()
+  geom_boxplot() +
+  ggsave("./silly_boxplot.png")
+
