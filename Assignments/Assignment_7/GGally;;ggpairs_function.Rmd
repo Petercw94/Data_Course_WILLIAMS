@@ -1,0 +1,32 @@
+---
+title: "Cool Graph Function"
+author: "pwilliams"
+date: "3/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Want to see a cool graphing function?
+
+```{r, include=FALSE}
+library(tidyverse)
+library(GGally)
+```
+
+First, download the dataset:
+
+```{r}
+df = read.csv("./mushroom_growth.csv")
+head(df, n = 10)
+```
+
+Once the data set is loaded in and you want to start testing the relationship between variables to get a feel for the data, you can run the function ggpairs (from the GGallly package):
+
+```{r message=FALSE, warning=FALSE}
+ggpairs(df)
+```
+
+How sweet is that?
