@@ -1,0 +1,436 @@
+County,Pop_2010,Religion,Proportion
+Beaver County,6629,Religious,0.7762888888889
+Box Elder County,49975,Religious,0.90295
+Cache County,112656,Religious,0.87746
+Carbon County,21403,Religious,0.7994188888889
+Daggett County,1059,Religious,0.6562788888889
+Davis County,306479,Religious,0.82371
+Duchesne County,18607,Religious,0.7807788888889
+Emery County,10976,Religious,0.8191488888889
+Garfield County,5172,Religious,0.7455488888889
+Grand County,9225,Religious,0.5377788888889
+Iron County,46163,Religious,0.77486
+Juab County,10246,Religious,0.83457
+Kane County,7125,Religious,0.6666688888889
+Millard County,12503,Religious,0.83012
+Morgan County,9469,Religious,0.8962888888889
+Piute County,1556,Religious,0.6658088888889
+Rich County,2264,Religious,0.87986
+Salt Lake County,1029655,Religious,0.73237
+San Juan County,14746,Religious,0.5033188888889
+Sanpete County,27822,Religious,0.8005188888889
+Sevier County,20802,Religious,0.87732
+Summit County,36324,Religious,0.57557
+Tooele County,58218,Religious,0.87849
+Uintah County,32588,Religious,0.71585
+Utah County,516564,Religious,0.9095
+Wasatch County,23530,Religious,0.6668888888889
+Washington County,138115,Religious,0.7566488888889
+Wayne County,2778,Religious,0.7861788888889
+Weber County,231236,Religious,0.75299
+Beaver County,6629,Non.Religious,0.223713984009655
+Box Elder County,49975,Non.Religious,0.0970485242621311
+Cache County,112656,Non.Religious,0.122541187331345
+Carbon County,21403,Non.Religious,0.20057935803392
+Daggett County,1059,Non.Religious,0.343720491029273
+Davis County,306479,Non.Religious,0.176289403189126
+Duchesne County,18607,Non.Religious,0.219218573655076
+Emery County,10976,Non.Religious,0.180849125364432
+Garfield County,5172,Non.Religious,0.254447022428461
+Grand County,9225,Non.Religious,0.462222222222222
+Iron County,46163,Non.Religious,0.225137014492126
+Juab County,10246,Non.Religious,0.165430411868046
+Kane County,7125,Non.Religious,0.333333333333333
+Millard County,12503,Non.Religious,0.169879228985044
+Morgan County,9469,Non.Religious,0.103706832822896
+Piute County,1556,Non.Religious,0.334190231362468
+Rich County,2264,Non.Religious,0.120141342756184
+Salt Lake County,1029655,Non.Religious,0.267629448698836
+San Juan County,14746,Non.Religious,0.496677064966771
+Sanpete County,27822,Non.Religious,0.199482423981022
+Sevier County,20802,Non.Religious,0.12268051148928
+Summit County,36324,Non.Religious,0.424430128840436
+Tooele County,58218,Non.Religious,0.121508811707719
+Uintah County,32588,Non.Religious,0.284153676199828
+Utah County,516564,Non.Religious,0.0905037904306146
+Wasatch County,23530,Non.Religious,0.333106672333192
+Washington County,138115,Non.Religious,0.243347934692104
+Wayne County,2778,Non.Religious,0.213822894168467
+Weber County,231236,Non.Religious,0.247007386393122
+Beaver County,6629,Assemblies.of.God,0
+Box Elder County,49975,Assemblies.of.God,0.0023988888889
+Cache County,112656,Assemblies.of.God,0.00262
+Carbon County,21403,Assemblies.of.God,0.0011688888889
+Daggett County,1059,Assemblies.of.God,0
+Davis County,306479,Assemblies.of.God,0.01082
+Duchesne County,18607,Assemblies.of.God,0.0067188888889
+Emery County,10976,Assemblies.of.God,0
+Garfield County,5172,Assemblies.of.God,0
+Grand County,9225,Assemblies.of.God,0.00921
+Iron County,46163,Assemblies.of.God,0.00214
+Juab County,10246,Assemblies.of.God,0
+Kane County,7125,Assemblies.of.God,0
+Millard County,12503,Assemblies.of.God,0
+Morgan County,9469,Assemblies.of.God,0
+Piute County,1556,Assemblies.of.God,0
+Rich County,2264,Assemblies.of.God,0
+Salt Lake County,1029655,Assemblies.of.God,0.0056388888889
+San Juan County,14746,Assemblies.of.God,0.00285
+Sanpete County,27822,Assemblies.of.God,0
+Sevier County,20802,Assemblies.of.God,0.00774
+Summit County,36324,Assemblies.of.God,0
+Tooele County,58218,Assemblies.of.God,0.00297
+Uintah County,32588,Assemblies.of.God,0.01108
+Utah County,516564,Assemblies.of.God,0.00071
+Wasatch County,23530,Assemblies.of.God,0
+Washington County,138115,Assemblies.of.God,0.00091
+Wayne County,2778,Assemblies.of.God,0
+Weber County,231236,Assemblies.of.God,0.00366
+Beaver County,6629,Episcopal.Church,0
+Box Elder County,49975,Episcopal.Church,0.0017
+Cache County,112656,Episcopal.Church,0.00283
+Carbon County,21403,Episcopal.Church,0.00598
+Daggett County,1059,Episcopal.Church,0
+Davis County,306479,Episcopal.Church,0.00093
+Duchesne County,18607,Episcopal.Church,0
+Emery County,10976,Episcopal.Church,0
+Garfield County,5172,Episcopal.Church,0
+Grand County,9225,Episcopal.Church,0.0280788888889
+Iron County,46163,Episcopal.Church,0.001
+Juab County,10246,Episcopal.Church,0
+Kane County,7125,Episcopal.Church,0
+Millard County,12503,Episcopal.Church,0
+Morgan County,9469,Episcopal.Church,0
+Piute County,1556,Episcopal.Church,0
+Rich County,2264,Episcopal.Church,0
+Salt Lake County,1029655,Episcopal.Church,0.0026
+San Juan County,14746,Episcopal.Church,0.012
+Sanpete County,27822,Episcopal.Church,0
+Sevier County,20802,Episcopal.Church,0
+Summit County,36324,Episcopal.Church,0.0072088888889
+Tooele County,58218,Episcopal.Church,0.00158
+Uintah County,32588,Episcopal.Church,0.0123388888889
+Utah County,516564,Episcopal.Church,8.88888889e-05
+Wasatch County,23530,Episcopal.Church,0
+Washington County,138115,Episcopal.Church,0.0020488888889
+Wayne County,2778,Episcopal.Church,0
+Weber County,231236,Episcopal.Church,0.00147
+Beaver County,6629,Pentecostal.Church.of.God,0
+Box Elder County,49975,Pentecostal.Church.of.God,0.0027588888889
+Cache County,112656,Pentecostal.Church.of.God,0.0031288888889
+Carbon County,21403,Pentecostal.Church.of.God,0
+Daggett County,1059,Pentecostal.Church.of.God,0
+Davis County,306479,Pentecostal.Church.of.God,0.00066
+Duchesne County,18607,Pentecostal.Church.of.God,0.00097
+Emery County,10976,Pentecostal.Church.of.God,0
+Garfield County,5172,Pentecostal.Church.of.God,0
+Grand County,9225,Pentecostal.Church.of.God,0
+Iron County,46163,Pentecostal.Church.of.God,0.00446
+Juab County,10246,Pentecostal.Church.of.God,0
+Kane County,7125,Pentecostal.Church.of.God,0.0013988888889
+Millard County,12503,Pentecostal.Church.of.God,0.00224
+Morgan County,9469,Pentecostal.Church.of.God,0
+Piute County,1556,Pentecostal.Church.of.God,0
+Rich County,2264,Pentecostal.Church.of.God,0
+Salt Lake County,1029655,Pentecostal.Church.of.God,0.00243
+San Juan County,14746,Pentecostal.Church.of.God,0
+Sanpete County,27822,Pentecostal.Church.of.God,9e-04
+Sevier County,20802,Pentecostal.Church.of.God,0.00212
+Summit County,36324,Pentecostal.Church.of.God,0
+Tooele County,58218,Pentecostal.Church.of.God,0
+Uintah County,32588,Pentecostal.Church.of.God,0
+Utah County,516564,Pentecostal.Church.of.God,0.00029
+Wasatch County,23530,Pentecostal.Church.of.God,0
+Washington County,138115,Pentecostal.Church.of.God,0.00243
+Wayne County,2778,Pentecostal.Church.of.God,0
+Weber County,231236,Pentecostal.Church.of.God,0.00264
+Beaver County,6629,Greek.Orthodox,0
+Box Elder County,49975,Greek.Orthodox,0
+Cache County,112656,Greek.Orthodox,0
+Carbon County,21403,Greek.Orthodox,0.01308
+Daggett County,1059,Greek.Orthodox,0
+Davis County,306479,Greek.Orthodox,0
+Duchesne County,18607,Greek.Orthodox,0
+Emery County,10976,Greek.Orthodox,0
+Garfield County,5172,Greek.Orthodox,0
+Grand County,9225,Greek.Orthodox,0
+Iron County,46163,Greek.Orthodox,0
+Juab County,10246,Greek.Orthodox,0
+Kane County,7125,Greek.Orthodox,0
+Millard County,12503,Greek.Orthodox,0
+Morgan County,9469,Greek.Orthodox,0
+Piute County,1556,Greek.Orthodox,0
+Rich County,2264,Greek.Orthodox,0
+Salt Lake County,1029655,Greek.Orthodox,0.00437
+San Juan County,14746,Greek.Orthodox,0
+Sanpete County,27822,Greek.Orthodox,0
+Sevier County,20802,Greek.Orthodox,0
+Summit County,36324,Greek.Orthodox,0
+Tooele County,58218,Greek.Orthodox,0
+Uintah County,32588,Greek.Orthodox,0
+Utah County,516564,Greek.Orthodox,0
+Wasatch County,23530,Greek.Orthodox,0
+Washington County,138115,Greek.Orthodox,0
+Wayne County,2778,Greek.Orthodox,0
+Weber County,231236,Greek.Orthodox,0.00151
+Beaver County,6629,LDS,0.74898
+Box Elder County,49975,LDS,0.8137688888889
+Cache County,112656,LDS,0.8225488888889
+Carbon County,21403,LDS,0.53109
+Daggett County,1059,LDS,0.6562788888889
+Davis County,306479,LDS,0.74659
+Duchesne County,18607,LDS,0.73499
+Emery County,10976,LDS,0.77287
+Garfield County,5172,LDS,0.7310488888889
+Grand County,9225,LDS,0.311
+Iron County,46163,LDS,0.6906588888889
+Juab County,10246,LDS,0.8172
+Kane County,7125,LDS,0.57782
+Millard County,12503,LDS,0.7925288888889
+Morgan County,9469,LDS,0.8890088888889
+Piute County,1556,LDS,0.6658088888889
+Rich County,2264,LDS,0.87986
+Salt Lake County,1029655,LDS,0.59325
+San Juan County,14746,LDS,0.44012
+Sanpete County,27822,LDS,0.7892
+Sevier County,20802,LDS,0.83607
+Summit County,36324,LDS,0.34974
+Tooele County,58218,LDS,0.66797
+Uintah County,32588,LDS,0.6244288888889
+Utah County,516564,LDS,0.8866288888889
+Wasatch County,23530,LDS,0.6447888888889
+Washington County,138115,LDS,0.68198
+Wayne County,2778,LDS,0.77682
+Weber County,231236,LDS,0.5996
+Beaver County,6629,Southern.Baptist.Convention,0.00241
+Box Elder County,49975,Southern.Baptist.Convention,0.00394
+Cache County,112656,Southern.Baptist.Convention,0.00383
+Carbon County,21403,Southern.Baptist.Convention,0.00841
+Daggett County,1059,Southern.Baptist.Convention,0
+Davis County,306479,Southern.Baptist.Convention,0.00724
+Duchesne County,18607,Southern.Baptist.Convention,0.0175188888889
+Emery County,10976,Southern.Baptist.Convention,0.00938
+Garfield County,5172,Southern.Baptist.Convention,0.00483
+Grand County,9225,Southern.Baptist.Convention,0.05485
+Iron County,46163,Southern.Baptist.Convention,0.0118488888889
+Juab County,10246,Southern.Baptist.Convention,0
+Kane County,7125,Southern.Baptist.Convention,0
+Millard County,12503,Southern.Baptist.Convention,0.0016
+Morgan County,9469,Southern.Baptist.Convention,0
+Piute County,1556,Southern.Baptist.Convention,0
+Rich County,2264,Southern.Baptist.Convention,0
+Salt Lake County,1029655,Southern.Baptist.Convention,0.0048888888889
+San Juan County,14746,Southern.Baptist.Convention,0.0085388888889
+Sanpete County,27822,Southern.Baptist.Convention,0.00173
+Sevier County,20802,Southern.Baptist.Convention,0.0045188888889
+Summit County,36324,Southern.Baptist.Convention,8e-04
+Tooele County,58218,Southern.Baptist.Convention,0.0053788888889
+Uintah County,32588,Southern.Baptist.Convention,0.01016
+Utah County,516564,Southern.Baptist.Convention,6e-04
+Wasatch County,23530,Southern.Baptist.Convention,0.00374
+Washington County,138115,Southern.Baptist.Convention,0.0033188888889
+Wayne County,2778,Southern.Baptist.Convention,0.0036
+Weber County,231236,Southern.Baptist.Convention,0.00511
+Beaver County,6629,United.Methodist.Church,0
+Box Elder County,49975,United.Methodist.Church,0.0033188888889
+Cache County,112656,United.Methodist.Church,0
+Carbon County,21403,United.Methodist.Church,0.00519
+Daggett County,1059,United.Methodist.Church,0
+Davis County,306479,United.Methodist.Church,0
+Duchesne County,18607,United.Methodist.Church,0
+Emery County,10976,United.Methodist.Church,0
+Garfield County,5172,United.Methodist.Church,0
+Grand County,9225,United.Methodist.Church,0
+Iron County,46163,United.Methodist.Church,0
+Juab County,10246,United.Methodist.Church,0.00312
+Kane County,7125,United.Methodist.Church,0.00688
+Millard County,12503,United.Methodist.Church,0
+Morgan County,9469,United.Methodist.Church,0
+Piute County,1556,United.Methodist.Church,0
+Rich County,2264,United.Methodist.Church,0
+Salt Lake County,1029655,United.Methodist.Church,0.00347
+San Juan County,14746,United.Methodist.Church,0
+Sanpete County,27822,United.Methodist.Church,0
+Sevier County,20802,United.Methodist.Church,0
+Summit County,36324,United.Methodist.Church,0.02128
+Tooele County,58218,United.Methodist.Church,0.00345
+Uintah County,32588,United.Methodist.Church,0
+Utah County,516564,United.Methodist.Church,0.00016
+Wasatch County,23530,United.Methodist.Church,0
+Washington County,138115,United.Methodist.Church,0.00206
+Wayne County,2778,United.Methodist.Church,0
+Weber County,231236,United.Methodist.Church,0.00384
+Beaver County,6629,Buddhism.Mahayana,0
+Box Elder County,49975,Buddhism.Mahayana,0.0250125062531
+Cache County,112656,Buddhism.Mahayana,0
+Carbon County,21403,Buddhism.Mahayana,0
+Daggett County,1059,Buddhism.Mahayana,0
+Davis County,306479,Buddhism.Mahayana,0.0003328123623
+Duchesne County,18607,Buddhism.Mahayana,0
+Emery County,10976,Buddhism.Mahayana,0
+Garfield County,5172,Buddhism.Mahayana,0
+Grand County,9225,Buddhism.Mahayana,0
+Iron County,46163,Buddhism.Mahayana,0
+Juab County,10246,Buddhism.Mahayana,0
+Kane County,7125,Buddhism.Mahayana,0
+Millard County,12503,Buddhism.Mahayana,0
+Morgan County,9469,Buddhism.Mahayana,0
+Piute County,1556,Buddhism.Mahayana,0
+Rich County,2264,Buddhism.Mahayana,0
+Salt Lake County,1029655,Buddhism.Mahayana,0.0036818157538
+San Juan County,14746,Buddhism.Mahayana,0
+Sanpete County,27822,Buddhism.Mahayana,0
+Sevier County,20802,Buddhism.Mahayana,0
+Summit County,36324,Buddhism.Mahayana,0
+Tooele County,58218,Buddhism.Mahayana,0
+Uintah County,32588,Buddhism.Mahayana,0
+Utah County,516564,Buddhism.Mahayana,0.0001993944603
+Wasatch County,23530,Buddhism.Mahayana,0
+Washington County,138115,Buddhism.Mahayana,0
+Wayne County,2778,Buddhism.Mahayana,0
+Weber County,231236,Buddhism.Mahayana,0.0054057326714
+Beaver County,6629,Catholic,0.0229288888889
+Box Elder County,49975,Catholic,0.0401788888889
+Cache County,112656,Catholic,0.0293588888889
+Carbon County,21403,Catholic,0.1911388888889
+Daggett County,1059,Catholic,0
+Davis County,306479,Catholic,0.04171
+Duchesne County,18607,Catholic,0.0144
+Emery County,10976,Catholic,0.00957
+Garfield County,5172,Catholic,0.00967
+Grand County,9225,Catholic,0.0688288888889
+Iron County,46163,Catholic,0.0487
+Juab County,10246,Catholic,0.01415
+Kane County,7125,Catholic,0.03396
+Millard County,12503,Catholic,0.00608
+Morgan County,9469,Catholic,0
+Piute County,1556,Catholic,0
+Rich County,2264,Catholic,0
+Salt Lake County,1029655,Catholic,0.0819088888889
+San Juan County,14746,Catholic,0.012
+Sanpete County,27822,Catholic,0.00273
+Sevier County,20802,Catholic,0.0131188888889
+Summit County,36324,Catholic,0.14533
+Tooele County,58218,Catholic,0.1839
+Uintah County,32588,Catholic,0.0371
+Utah County,516564,Catholic,0.01315
+Wasatch County,23530,Catholic,0.01564
+Washington County,138115,Catholic,0.04232
+Wayne County,2778,Catholic,0.0054
+Weber County,231236,Catholic,0.0818788888889
+Beaver County,6629,Evangelical,0.0042188888889
+Box Elder County,49975,Evangelical,0.0161488888889
+Cache County,112656,Evangelical,0.0141688888889
+Carbon County,21403,Evangelical,0.04682
+Daggett County,1059,Evangelical,0
+Davis County,306479,Evangelical,0.02587
+Duchesne County,18607,Evangelical,0.0303588888889
+Emery County,10976,Evangelical,0.0367188888889
+Garfield County,5172,Evangelical,0.00483
+Grand County,9225,Evangelical,0.0892088888889
+Iron County,46163,Evangelical,0.02998
+Juab County,10246,Evangelical,0
+Kane County,7125,Evangelical,0.02989
+Millard County,12503,Evangelical,0.0291088888889
+Morgan County,9469,Evangelical,0
+Piute County,1556,Evangelical,0
+Rich County,2264,Evangelical,0
+Salt Lake County,1029655,Evangelical,0.02671
+San Juan County,14746,Evangelical,0.03628
+Sanpete County,27822,Evangelical,0.00766
+Sevier County,20802,Evangelical,0.02591
+Summit County,36324,Evangelical,0.0206788888889
+Tooele County,58218,Evangelical,0.0214688888889
+Uintah County,32588,Evangelical,0.0402288888889
+Utah County,516564,Evangelical,0.00492
+Wasatch County,23530,Evangelical,0.00637
+Washington County,138115,Evangelical,0.01698
+Wayne County,2778,Evangelical,0.0036
+Weber County,231236,Evangelical,0.0465388888889
+Beaver County,6629,Muslim,0
+Box Elder County,49975,Muslim,0
+Cache County,112656,Muslim,0.00273
+Carbon County,21403,Muslim,0
+Daggett County,1059,Muslim,0
+Davis County,306479,Muslim,0.00016
+Duchesne County,18607,Muslim,0
+Emery County,10976,Muslim,0
+Garfield County,5172,Muslim,0
+Grand County,9225,Muslim,0
+Iron County,46163,Muslim,0
+Juab County,10246,Muslim,0
+Kane County,7125,Muslim,0
+Millard County,12503,Muslim,0
+Morgan County,9469,Muslim,0
+Piute County,1556,Muslim,0
+Rich County,2264,Muslim,0
+Salt Lake County,1029655,Muslim,0.00441
+San Juan County,14746,Muslim,0
+Sanpete County,27822,Muslim,0
+Sevier County,20802,Muslim,0
+Summit County,36324,Muslim,0
+Tooele County,58218,Muslim,0
+Uintah County,32588,Muslim,0
+Utah County,516564,Muslim,0
+Wasatch County,23530,Muslim,0
+Washington County,138115,Muslim,0
+Wayne County,2778,Muslim,0
+Weber County,231236,Muslim,0.00043
+Beaver County,6629,Non.Denominational,0
+Box Elder County,49975,Non.Denominational,0.0054
+Cache County,112656,Non.Denominational,0.00372
+Carbon County,21403,Non.Denominational,0.00832
+Daggett County,1059,Non.Denominational,0
+Davis County,306479,Non.Denominational,0.00302
+Duchesne County,18607,Non.Denominational,0.00532
+Emery County,10976,Non.Denominational,0.01367
+Garfield County,5172,Non.Denominational,0
+Grand County,9225,Non.Denominational,0.0095388888889
+Iron County,46163,Non.Denominational,0.0081188888889
+Juab County,10246,Non.Denominational,0
+Kane County,7125,Non.Denominational,0.0245588888889
+Millard County,12503,Non.Denominational,0.02103
+Morgan County,9469,Non.Denominational,0
+Piute County,1556,Non.Denominational,0
+Rich County,2264,Non.Denominational,0
+Salt Lake County,1029655,Non.Denominational,0.0054688888889
+San Juan County,14746,Non.Denominational,0
+Sanpete County,27822,Non.Denominational,0.0059288888889
+Sevier County,20802,Non.Denominational,0.0115388888889
+Summit County,36324,Non.Denominational,0.00206
+Tooele County,58218,Non.Denominational,0.00708
+Uintah County,32588,Non.Denominational,0.0019
+Utah County,516564,Non.Denominational,0.00096
+Wasatch County,23530,Non.Denominational,0.00263
+Washington County,138115,Non.Denominational,0.00883
+Wayne County,2778,Non.Denominational,0
+Weber County,231236,Non.Denominational,0.0184688888889
+Beaver County,6629,Orthodox,0
+Box Elder County,49975,Orthodox,0
+Cache County,112656,Orthodox,0
+Carbon County,21403,Orthodox,0.01308
+Daggett County,1059,Orthodox,0
+Davis County,306479,Orthodox,0
+Duchesne County,18607,Orthodox,0
+Emery County,10976,Orthodox,0
+Garfield County,5172,Orthodox,0
+Grand County,9225,Orthodox,0
+Iron County,46163,Orthodox,0
+Juab County,10246,Orthodox,0
+Kane County,7125,Orthodox,0
+Millard County,12503,Orthodox,0
+Morgan County,9469,Orthodox,0
+Piute County,1556,Orthodox,0
+Rich County,2264,Orthodox,0
+Salt Lake County,1029655,Orthodox,0.0052
+San Juan County,14746,Orthodox,0
+Sanpete County,27822,Orthodox,0
+Sevier County,20802,Orthodox,0
+Summit County,36324,Orthodox,0
+Tooele County,58218,Orthodox,0
+Uintah County,32588,Orthodox,0
+Utah County,516564,Orthodox,0
+Wasatch County,23530,Orthodox,0
+Washington County,138115,Orthodox,0
+Wayne County,2778,Orthodox,0
+Weber County,231236,Orthodox,0.00151
