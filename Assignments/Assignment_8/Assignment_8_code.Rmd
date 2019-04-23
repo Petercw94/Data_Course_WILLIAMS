@@ -1,0 +1,68 @@
+---
+title: "WILLIAMS_Assignment_8"
+author: "pwilliams"
+date: "4/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment 8 
+
+#### Introduction
+The data being analyzed in this document consists of grad school matriculation data. Variables including admission status (0 = not admitted, 1 = admitted), GRE score, GPA, and undergraduate university rank. 
+
+#### Methods
+Because the dependent variable in the data set (admission status) is classified as nominal level data, a gaussian analysis cannot be conducted. Instead, a binomial model would be a better fit for the current data. Once the model was created predictions on odds of admission were created. Finally, the data was presented with a graph consisting of admission odds based on GPA. 
+
+#### Analysis
+
+##### Step 1: **Load and Explore the Data**
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(modelr)
+grad = read.csv("GradSchool_Admissions.csv")
+glimpse(grad)
+```
+
+The data appears to be in a workable format without any tiding necessary. Averages of each variable were determined to familarize with the data and help with model construction.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+grad %>%
+  group_by(admit) %>%
+  summarise(Avg.GRE = mean(gre), Avg.GPA = mean(gpa), Avg.Rank = mean(rank))
+```
+**_Where 0 = not admitted and 1 = admitted_**
+
+##### Step 2: **Model the Data** 
+
+Several models were conducted and compared in order to find the best fit for the data. The model chosen consists of admission data being described by GPA and GRE scores. A summary of the model can be found below:
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+mod2 = glm(admit ~ gre+gpa, data = grad, family = "binomial")
+summary(mod2)
+```
+
+It appears that both GRE scores and GPA values have a statistically significant effect on admission status. 
+
+##### Step 3: **Make Predictions**
+
+To determine the extent to which each variable affected an individuals odds of getting into grad school, the coefficients of our model were examined. The results showed that, for every 1 unit increase in GRE scores the odds of acceptance went up by *1.003*. For the same unit increase in GPA, the odds of acceptance increased by *2.13*.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+grad$binom.pred <- predict(mod2, type = "response")
+grad$binom.resid <- residuals(mod2, type = "response")
+exp(coefficients(mod2))
+```
+
+##### Step 4: **Visualizing the Data**
+
+The graph below shows the predicted relationship between GPA and odds of admission:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(grad, aes(x=gpa,y=admit)) +
+  geom_segment(aes(xend=gpa,yend=binom.pred), alpha=.5) +
+  geom_point() +
+  geom_point(aes(y=binom.pred), shape=24, color="Blue")
+```
