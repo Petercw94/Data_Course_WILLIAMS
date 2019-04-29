@@ -1,0 +1,151 @@
+---
+title: "2/12/19 notes"
+author: "pwilliams"
+date: "2/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Using tidyverse, we receive access to a bunch of new commands
+```{r include=FALSE}
+library(tidyverse)
+read.delim("./Exams/Exam_1/DNA_Conc_by_Extraction_Date.csv", sep = "\t") -> df
+```
+
+
+#02/12/19 Notes
+
+
+
+## Piping commands using tidyverse packages
+ **%>%** works similar as a pipe command. Select lets us choose columns (a - in front of column means everything but that column)
+
+```{r}
+# First we call our data frame, then we pipe our dataframe into the next commmand, in this case, the select() command.
+selectYC = df %>%
+  select(Year_Collected)
+head(selectYC)
+```
+
+ filter() lets you access all the rows of a specifc command (in this case all the rows with year collected > 2005)
+```{r}
+filter1 = df %>%
+  filter(Year_Collected > 2005) %>%
+  mutate(k2 = DNA_Concentration_Katy^2)
+head(filter1)
+  
+```
+
+The group_by() function allows us to create groups within columns. When paired with summarise it becomes **DEADLY**
+```{r}
+gbsum1 = df %>%
+  group_by(Year_Collected) %>%
+  summarise(N = n(), MeanBen = mean(DNA_Concentration_Ben), SDBen = sd(DNA_Concentration_Ben))
+head(gbsum1)
+#This grouped our Year_Collected column nicely
+```
+
+```{r include=FALSE}
+data("iris")
+df = iris
+```
+We practiced subsetting large data frames using tidyr commands with the Iris data set
+
+
+```{r}
+df2 = df %>%
+  group_by(Species) %>%
+  summarise(N = n(), SLMEAN = mean(Sepal.Length), SDsl = sd(Sepal.Length), MINsl = min(Sepal.Length), MAXsl = max(Sepal.Length)) %>%
+  as.data.frame() # The as.data.frame() function needed to be added because, without it, the dataframe is stored as a tibble, which makes it difficult to work with in some programs or on some devices
+
+#Check our new class of df2
+class(df2)
+df2
+```
+
+Next we used how to search within dataframes (specifically column and row names) using the select() function and its arguments.
+```{r}
+
+#Starts_with selects column names that start with a provided search factor
+startwithS = df %>% 
+  select(starts_with("S"))
+head(startwithS)
+
+
+#To explore data sets when column names are unknown:
+pickone = df%>%
+  select(one_of(c("Petal.Length", "Sepal.Roundness")))
+head(pickone)
+```
+Here are some common commands for tidying and manipulating data in tidyverse:
++arrange() 
++filter()
++select()
++mutate()
++group_by()
+
+
+
+##Tidying data sets using tidyr
+
+In tidy data:
+ + Every row = observation
+ + Every column = single variable
+ + Element = Value
+ 
+ 
+Here are two data frames
+```{r echo=FALSE}
+df1 = data.frame(CustomerId = c(1:6), Product = c(rep("Toaster", 3), rep("Radio", 3)))
+df2 = data.frame(CustomerId = c(2, 4, 6), State = c(rep("Alabama", 2), rep("Ohio", 1)))
+
+df1
+df2
+```
+
+Join them together using the commands below:
+```{r}
+full_join(df1,df2, by="CustomerId")
+#Combines everything from both dfs
+left_join(df1,df2, by="CustomerId")
+#combines everything from the by argument in left df with matching by arguments in right df
+right_join(df1,df2, by="CustomerId")
+##combines everything from the by argument in left df with matching by arguments in right df
+inner_join(df1,df2, by="CustomerId")
+semi_join(df1,df2, by="CustomerId")
+anti_join(df1,df2, by="CustomerId")
+```
+What is the difference between these different functions?
+
+##Converting wide data sets into long ones using the gather() function. 
+```{r include=FALSE}
+read.csv("..//Data_Course/Data/Utah_Religions_by_County.csv") -> utah
+```
+
+```{r}
+head(utah)
+```
+This is an example of a wide data set. Each variable that consists of a relgion should be condensed into two columns: one titled Religion, and the other titled Proportion. This can be done using the gather() command:
+```{r}
+utah.long = gather(utah, key = "Religion", value = "Proportion", -c(1:4))
+
+utah.long$County <- factor(str_remove(utah.long$County, " County"))
+# We simply removed the word County from every element within the County variable
+```
+
+Now we can plot this data set using ggplot (which we could not do before)
+```{r}
+ggplot(utah.long, aes(x = Religion, y = Proportion, fill = Religion)) +
+  geom_boxplot() + coord_flip() +facet_wrap(utah.long$County)
+```
+Hmmm, it looks like the observation "LDS" is having a large affect on the rest of our data. Lets get rid of that variable just to see what the other data looks like.
+```{r}
+utah.long %>%
+  filter(Religion != "LDS") %>%
+  ggplot(aes(x = Religion, y = Proportion, fill = Religion)) +
+  geom_boxplot() + coord_flip() + facet_wrap(~County)
+```

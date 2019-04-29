@@ -1,0 +1,30 @@
+---
+title: "03_12_19_notes"
+author: "pwilliams"
+date: "3/14/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# GGPlot2 Madness
+
+Today's class was all about learning some sweet new tricks to visualize our data with ggplot2!  
+The first step was, of course, loading our data. We used, of course, *Mtcars* data set. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+data("mtcars")
+df = mtcars
+```
+
+The next step was to clean the data (because we know that mtcars has some numerical values that should really be factors)
+
+```{r, include=TRUE}
+df$am = factor(df$am)
+```
+
+Now we can go ahead and make our own color pallete. To accomplish this we need to google color picker. We can then use the color bar to choose what color we want. Once we have the appropriate color, we can use the code to create a new pallete (see image below).  
+
+image: ![]("../../Color_picker_image")

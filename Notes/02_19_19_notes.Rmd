@@ -1,0 +1,59 @@
+---
+title: "02/19/19 notes"
+author: "pwilliams"
+date: "2/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 02/19/19 Notes  
+## Working with Excel/ Tidying data  
+
+```{r, include=FALSE}
+library(tidyverse)
+# First and foremost, download needed packages. For today, tidyverse was sufficient ####
+```
+
+### Ugly Data Excersize 1
+
+The first thing we did was upload a real life example of ugly data and made it a long data set:  
+```{r message=FALSE, warning=FALSE}
+df = read.csv("./Exercises/ugly_data1.csv")
+long = gather(df, Group, Value, 2:9)
+```
+
+Now that our data was in the right format, we can start to tidy it up a bit! The first step is to fix that horrible *Groups* column. It looks like we need to split the gender from the age-range, but there is nothing separatin them so using our separate() function might prove a little difficult as is. There are two ways to fix this:  
+The first, looks like this:
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+malerows = grep("^m", long$Group) # This will find any string in the vector that starts with m
+femalerows = grep("^f", long$Group) # This will find any string in the vector that starts with f
+long$Gender[malerows] <- "Male" # This will add the value "Male" in a newly created column "Gender" for all values that start with m in the group column
+long$Gender[femalerows] <- "Female" #This will do the same but for Female
+long$Group = str_remove(long$Group, "^m")  # This will get rid of the m at the beginning of the string
+long$Group = str_remove(long$Group, "^f")  # This will get rid of the f at the beginning of the string
+long$Group = str_replace(long$Group, "014", "0014") # Replacing our 014 with 0014 allows us to neatly insert a dash after the second character of our string 
+
+
+######## This is where we insert in the dash ########
+ages1 = substr(long$Group, start = 1, stop = 2)
+ages2 = substr(long$Group, start = 2, stop = 4)
+ages = paste0(ages1, "-", ages2)
+```
+
+The second way, a little less coding involved, looks like this: 
+```{r}
+group1 = substr(long$Group, start = 1, stop = 1)
+group2 = substr(long$Group, start = 2, stop = 5)
+groups = paste0(group1, "-", group2)
+long$Group = groups
+long = separate(long, Group, into = c("Gender", "AgeRange"), sep = "-")
+```
+
+
+
+
+
+

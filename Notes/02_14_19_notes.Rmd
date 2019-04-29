@@ -1,0 +1,109 @@
+---
+title: "02/14/19 notes"
+author: "pwilliams"
+date: "2/14/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 02/14/19 Notes
+
+The first thing we did was read a the biolog dataset (found in data) into our environment:
+
+```{r, include=FALSE}
+library(tidyverse)
+df = read.csv("./Data/BioLog_Plate_Data.csv")
+```
+Once our data frame was made we began to look through our data to get a feel for it:
+```{r}
+glimpse(df)
+```
+We then learned a new function found in the plyr package.  
+  * plyr::mapvalues()  
+The first part of this function, *plyr::* allows us to call on a function from a package without loading that package. This is handy because loading plyr would completely destroy (or inconviently interfere with) our currently loaded dplyr package found in tidyverse.  The second part of the function, mapvalues(), is essentially a search and replace function that doesn't rely on patterns (at least not in the typical sense of search and replace functions). For more information, see the help guide below:
+```{r echo=FALSE}
+?plyr::mapvalues()
+```
+mapvalues(*data*, from = *x*, to = *y*)  
+  * *data* is a factor or vector to modify  
+  * *x* is a vector of the items to replace  
+  * *y* is a vector of replacement values  
+
+## Exercises
+
+With our new function somewhat understood, we were ready to begin our exercises.
+
+**1. Write a command the subsets the BioLog data to Clear_Creek samples, with dilution of 0.01, and only "Glycogen"**
+
+```{r}
+df2 = df %>%
+  filter(Sample.ID == "Clear_Creek" & Dilution == 0.01 & Substrate == "Glycogen") 
+df2
+```
+  * This question required us to recall the new functions we learned last class, specifically the filter function. When filtering multiple items within a dataframe, the *&* argument can be applied as a form of pipe rather than piping multiple filter commands over and over, as seen above.
+
+**2. Now plot those three replicates over time**
+
+```{r}
+long = gather(df2, key = "Hour", value = "Absorbance", c(6:8))
+long$Hour = as.numeric(plyr::mapvalues(long$Hour, from = unique(long$Hour), to = c(24, 48, 144)))
+ggplot(long, aes(x=Hour, y= Absorbance, color = factor(Rep))) + 
+  geom_jitter() 
+```
+
+  * Plotting the our new df2 by time would be impossible(actually just very unreliable) because our time is spread throughout different columns. This is a classic messy data failure and is described by Wickham as having valuse as variables; a BIG no no. Not to worry, it was a simple fix with our handy gather command.  
+  * Once we have a new __clean__ dataframe, we can start to plot it. __BUT WAIT__, what are those horrible values where our hours should be? (Hr_24, etc.) We should probably change those using our new handy mapvalues command!  
+  * Whew, much better, now we can finally plot our data!   
+
+**3. Make a plot of Tween 80 utilization over time for ALL the samples, colored by Sample.ID**
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+dflong = gather(df, key = "Hour", value = "Absorbance", c(6:8))
+dflong$Hour = as.numeric(plyr::mapvalues(dflong$Hour, from = unique(dflong$Hour), to = c(24, 48, 144)))
+dflong %>% 
+  filter(Substrate == "Tween 80 ") %>%
+  ggplot(aes(x=Hour, y= Absorbance, color = Sample.ID, fill = Sample.ID)) + 
+  geom_jitter() + facet_wrap(~Sample.ID) + geom_smooth()
+``` 
+
+  * The first step to solving this problem was going back to our original dataframe(which was still messy) and cleaning it the same way we did our subsetted dataframe.  
+  * With a clean dataframe, we can start to subset and plot for Tween 80, but what's this? For somereason we get this error message when trying to filter by Tween 80:
+```{r echo=FALSE, paged.print=FALSE}
+dflong %>%
+  filter(Substrate == "Tween 80")
+```
+  * Let's take a look at substrates using the levels function:
+```{r}
+levels(dflong$Substrate)
+```
+  * Hmm it looks like some **noob** put a space after the 80 when they were creating the data set! Looks like we will have to add a space to our filter command! Now that that is fixed, we can pipe our plot right into our function line. Awesome! 
+  
+**4. Now, same plot, but combine both soils and both waters into soil and water groups and color by soil vs water**
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+new_sampleID = plyr::mapvalues(dflong$Sample.ID, from = unique(dflong$Sample.ID), to = c("Water", "Soil", "Soil", "Water"))
+dflong$Sample.ID = new_sampleID
+dflong %>% 
+  filter(Substrate == "Tween 80 ") %>%
+  ggplot(aes(x=Hour, y= Absorbance, color = Sample.ID, fill = Sample.ID)) + 
+  geom_jitter() + facet_wrap(~Sample.ID) + geom_smooth()
+```
+
+* WOW, this is a tricky one! It looks like there are 4 different levels in our Sample.ID vector: two types of water and two types of soil. The best way to combine these, without losing any data in the process, is to simply change the vector to two levels, using our new **awesome** function mapvalues().  
+* Once we have our new levels, we can plot the data the same way we did the last problem! We can make it pretty with some pretty geometrics like smooth and a facet wrap!  
+**WOW THAT IS ONE PRETTY GRAPH**
+
+**5. Make a table of summary statistics: for each combination of Sample.ID and Substrate, give:  **
+  * Number of observations  
+  * Mean absorbance value
+  
+```{r}
+stats = dflong %>% 
+  group_by(Sample.ID, Substrate) %>%
+  summarise(N = n(), Mean = mean(Absorbance))
+head(stats)
+```
+
+  * This was a simple group_by %>% summarise dynamic duo!
