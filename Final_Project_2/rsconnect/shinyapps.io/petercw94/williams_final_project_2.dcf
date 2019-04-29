@@ -1,0 +1,13 @@
+name: williams_final_project_2
+title:
+username:
+account: petercw94
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 884846
+bundleId: 2033330
+url: https://petercw94.shinyapps.io/williams_final_project_2/
+when: 1556041431.42119
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .modsums_HR_SV.csv|Analyzing_part_1.R|Analyzing_part_2.R|average_BL.HR_value_over_time.csv|average_BL.SV_value_over_time.csv|avg.BL.SV.values.over.time.R|BL_data_time.csv|BL.v.dat.averages.csv|BL.v.dat.averages.txt|Cleaning_part_1.R|Cleaning_part_2.R|Cleaning_time_series_analysis.R|demographics.cleaned.csv|Graphing_part_1.R|Graphing_part_2.R|Graphing_time_series_analysis.R|Heart_rate_only.csv|HF_only.csv|HR_only.csv|HR_P_Value_Screen_Shot.png|HR_Plotting.R|LF_only.csv|link_to_follow.docx|Measurement_over_time.jpeg|model_summaries_2.csv|model_summaries_2.txt|model_summaries.csv|model_summaries.txt|modsums_HR_SV.csv|NBA_data.R|r_project_proposal.html|r_project_proposal.Rmd|S&Y_data_over_time_with_demographics_clean.csv|S&Y_mark_5.R|S&Y_mark_6.R|S&Y_mark_7.R|S&Y_shiny_2.R|S&Y_shiny_basic.R|S&Y_shiny_ggplot.R|S&Y_take_2.r|S&Y_take_3.R|S&Y_take_4.R|server.R|Shiny_R_markdown_test.html|Shiny_R_markdown_test.Rmd|SR_Demographics - Sheet1.csv|SR_stress_response_without_NAs.csv|SR_stress_response.csv|Stress_&_Yoga_clean_04_2019.csv|Stress_&_Yoga_time_clean_04_2019.csv|stress_and_yoga_data.R|SV_only.csv|SV_P_Value_Screen_Shot.png|time_analysis_stress_df.csv|time_data_s_&_y.csv|Time_series_analysis _notes.Rmd|Time_series_analysis__notes.html|Time_series_analysis.R|ui.R|VLF_only.csv|WILLIAMS_Final_Project_2.Rmd|WILLIAMS_Final_Project.html|WILLIAMS_Final_Project.Rmd

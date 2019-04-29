@@ -1,0 +1,198 @@
+---
+title: "WILLIAMS_Final_Project_2"
+author: "pwilliams"
+date: "4/22/2019"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# Load the libraries ####
+library(tidyverse)
+library(gganimate)
+library(shiny)
+
+
+# Load the data set and set appropriate classes ####
+stress = read.csv("./Stress_&_Yoga_clean_04_2019.csv", stringsAsFactors = TRUE)
+stress$Reading = as.numeric(stress$Reading)
+stress$Time = factor(stress$Time, ordered = TRUE, c("Pre_Stressor", "Stressor", "Post_Stressor"))
+stress$Measurement = factor(stress$Measurement)
+stress$Gender..1.male..2.female = factor(stress$Gender..1.male..2.female) 
+stress$Yoga.Instruction.1.No..2.Yes = factor(stress$Yoga.Instruction.1.No..2.Yes )
+stress$Yoga.Practice..1.never..2.sometimes..3.regularly = factor(stress$Yoga.Practice..1.never..2.sometimes..3.regularly)
+stress$Subject.ID = factor(stress$Subject.ID)
+stress = stress %>%
+  filter(Measurement != "NA")
+```
+
+# WILLIAMS Final Project
+
+### Introduction 
+
+The data I will be analyzing for my final project was collected from a team of UVU undergraduate research assistants in the Behavioral Science department. The data consists of physiological measurements, along with demographics, from current and past UVU students. Students were asked a series of demographic questions, including their experience with Yoga, and asked to watch a 30 minute video while connected to BioPac (a physiological measurement device). Fifteen minutes into the video, at exactly the midway point, students were presented with a 2 second stressor (a zombie jumping out at the screen). Data consisting of students heart rate, breathing, and skin conductance were collected for the 30 minute video period.  
+
+
+### Method 
+
+The data was analyzed using R via Rstudio. To analyze the researchers' first question, whether Yoga has an effect on the stress response at presentation of a stressor, a two factor **ANOVA** was conducted, with time being a categorical variable consisting of three factors: *Pre Stressor*, *Stressor*, and *Post Stressor*. The second question, does Yoga experience have an effect on the recovery of the nervous system after stressor presentation, was addressed using the same analysis method but time was set as a continuous variable rather than categorical. The data was cleaned and analyzed using the *Tidyverse* package. All graphs and models were created using *GGplot2*, *GGanimate*, and *Shiny* Web App packages.  
+
+
+### Raw Data
+
+The raw data was collected via Biopac and Qualtrics software and stored in Excel. Both data sets were wide format, with the demographic data consisting of a lot of useless information and the BioPac data consisting of values stored as variables (*sorry Wickham!*).
+
+
+### Cleaning the Data
+
+Cleaning the data consisted of a multi-step process involving the gathering of the wide BioPac data set and joining it with the Demographics data set twice. The first join was to the data set where Time, was an ordinal factor consisting of *Pre-Stressor*, *Stressor*, and *Post-Stressor*. This first data set served to address the first research question, overall effect of Yoga. The second question, regarding recovery over time, required Ratio level data, where time was a vector of 1 to 17 minutes. Minute 1 represents the baseline average, minute 2 corresponds to the presentation of the stessor, and each following minute represents a minute within fifteen minute recovery period.
+
+
+### Analyzing the Data
+
+
+#### Part 1 
+
+The first part of any data analysis is to familiarize yourself with the data. In order to do this, I wrote a Shiny app that allows me to quickly pick any variable from the data set to plot as my X and Y axis. With a data set this small, and with the variables being so limited, it was perhaps an unnecessary step. However, with a larger data set that contains numerous variables, it can be a very handy tool! 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Build your User interface Page
+ui <- fluidPage(
+  pageWithSidebar(
+    headerPanel("Stress and Yoga"), 
+    sidebarPanel(
+      selectInput(inputId = "dat",
+                  label = "Choose your Data",
+                  choices = levels(stress$Measurement),
+                  selected = "HR"),
+      selectInput(inputId = "x", 
+                  label = "X-axis",
+                  choices = names(stress), 
+                  selected = "Time"),
+      selectInput(inputId = "y", 
+                  label = "Y-axis",
+                  choices = names(stress),
+                  selected = "Reading"),
+      selectInput(inputId = "col",
+                  label = "Color",
+                  choices = names(stress),
+                  selected = "Yoga.Practice..1.never..2.sometimes..3.regularly")
+    ),
+    mainPanel(
+      plotOutput("plot")
+    )))
+# Build your server
+server <- function(input, output, session) {
+  # Combine the selected variable into a new data frame
+  selectedData <- reactive({
+    stress %>% 
+      filter(Measurement == input$dat)
+  })
+  output$plot = renderPlot({
+    ggplot(selectedData(), aes_string(x = input$x, y = input$y, color = input$col)) +
+      geom_boxplot(scales = "free") + 
+      theme(
+        panel.background = element_rect(fill = "White"),
+        panel.grid = element_line(colour = "Light Gray")
+      )
+  })
+}
+# Run the App
+shinyApp(ui = ui, server = server)
+```
+Once familiar with the data, I was able to start my analysis. It became apparent that my *Measurement* variables were too different to analyze together. I filtered out each measurement variable into their own data frames. Once the data frames were separated, the same variables were chosen for each measurement: *Time, Gender, Yoga Training, and Yoga Experience* were analyzed for their effect on *Reading* with an analysis of variance (*aov()* function). The p-values for each model can be found below:  
+
+Factors| HF | HR | LF | SV | VLF
+-------|----|----|----|----|-----
+Time   |0.0777|0.777768|*0.000807*|*2.98e-06*|*1.90e-12*
+Gender |*3.89e-05*|*1.86e-06*|*9.43e-11*|*0.00191*|*5.66e-07*
+Yoga Practice|0.2461|*0.000118*|*0.023347*|*7.08e-05*|0.185583
+Yoga Instruction|*2.07e-05*|0.573328|*0.019650*|*0.00128*|0.662024
+Gender:Yoga Practice|*1.04e-06*|*6.56e-16*|*3.80e-06*|*0.01475*|*0.005185*
+Gender:Yoga Instruction|0.8357|*0.000118*|*0.018454*|0.94230|*0.000239*
+Yoga Practice:Yoga Instruction|*2.91e-05*|*< 2e-16*|*0.000443*|*0.00475*|*0.035777*
+**P-Values for each factor separated by measurement variables (alpha = 0.05)**
+
+From the p-values presented in the table, it is apparent that Yoga practice (whether the individual actually practiced yoga or not) was statistically significant in influencing the HR, SV, and LF measurement readings. However, yoga instruction (whether the individual had proper training in yoga) significantly influenced only the HR, LF, and VLF measurements. Interestingly, time (in this case our stressor) did not have an significant affect on HF or HR measurements. 
+
+
+Graphs demonstrating the relationship between Yoga Practice and reading for each measurement variable can be found below:
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+p1 = ggplot(stress, aes(x = Yoga.Practice..1.never..2.sometimes..3.regularly, 
+                         y = Reading)) + 
+  geom_boxplot(fill = "#2cccdd") + 
+  scale_x_discrete(labels = c("Never", "Sometimes", "Regularly"), breaks = 1:3) +
+  labs(
+    x = "Yoga Practice",
+    title = "Yoga's Effect on Heart Rate",
+    subtitle = "{closest_state}"
+  ) + facet_wrap(~Measurement, scales = "free") +
+  theme_bw() +
+  
+  # Here comes the gganimate code
+  transition_states(
+    Time,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  enter_fade() + 
+  exit_shrink() +
+  ease_aes('sine-in-out')
+p1
+```
+
+#### Part 2
+
+The analysis conducted in part 2 was almost identical to that in part 1, the only difference being that time was converted from a categorical variable to a continuous variable. Time was converted into a *POSIXct* format and the variables were tested with the same model. P-values from part 2 analysis can be found in the table below.
+
+Factors| HF | HR | LF | SV | VLF
+-------|----|----|----|----|-----
+Time   |0.665577|0.073203|**0.07347**|0.950383|**0.252966**
+Gender |*0.000102*|*2.47e-06*|*1.04e-09*|*0.003040*|*2.47e-05*
+Yoga Practice|0.294458|*0.000126*|*0.03653*|*0.000507*|0.319218
+Yoga Instruction|*6.85e-05*|0.651213|**0.07413**|*0.001721*|0.444680
+Gender:Yoga Practice|*4.32e-06*|*1.92e-15*|*2.25e-05*|*0.026021*|*0.024342*
+Gender:Yoga Instruction|0.844168|*0.000127*|*0.00655*|0.93511|*0.000432*
+Yoga Practice:Yoga Instruction|*0.000108*|*< 2e-16*|*0.00115*|*0.008948*|**0.092549**
+**P-Values for each factor separated by measurement variables (alpha = 0.05)**
+*Bolded values represent values that are different from part 1 analysis*  
+
+A graph representing the relationship between reading over time factored by Yoga Practice can be found below:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Load the data and change the appropriate classes
+df = read.csv("./Stress_&_Yoga_time_clean_04_2019.csv", stringsAsFactors = TRUE)
+df$Reading = as.numeric(df$Reading)
+df$Time = as.POSIXct(df$Time)
+df$Measurement = factor(df$Measurement)
+df$Gender..1.male..2.female = factor(df$Gender..1.male..2.female) 
+df$Yoga.Instruction.1.No..2.Yes = factor(df$Yoga.Instruction.1.No..2.Yes )
+df$Yoga.Practice..1.never..2.sometimes..3.regularly = factor(df$Yoga.Practice..1.never..2.sometimes..3.regularly)
+df = df %>%
+  filter(Measurement != "NA")
+
+# Create a Palette
+pal = c("#2176ff","#4cc401", "#ff4c4c")
+
+# Graphing part 2
+ggplot(df, aes(x = Time, 
+                   y = Reading, 
+                   color = Yoga.Practice..1.never..2.sometimes..3.regularly)) +
+  geom_smooth(se = FALSE) + 
+  geom_point(alpha = 0.3) +
+  facet_wrap(~Measurement, scales = "free") +
+  theme_minimal() + 
+  scale_color_manual(labels = c("Never", "Sometimes", "Regularly"), values = pal) +
+  labs(color = "Yoga Practice", title = "Reading over Time described by Yoga Practice", 
+       subtitle = "Separated by Measurement")
+```
+
+### Conclusion
+
+It is apparent from the current analysis that yoga training and experience could have a statistically significant effect on the stress response. However, with a sample size of only 14, more data will have to be collected before any representative conclusions can be drawn. On top of the low subject pool, adjustments to the stressor's identity and duration should be reconsidered. From the analysis in part 1 it is apparent that, although yoga training an experience may have an effect on HR and other readings, the stressor did not have an effect on the HR and other readings; indicating that the stressor was not really all that stressfull. Making these adjustments and verifying the current findings would help to justify, or nullify, the use of yoga and mindful meditation as a means of combatting stress.
+
+
+

@@ -1,0 +1,112 @@
+
+> print(sumHR)
+                                                                               Df Sum Sq Mean Sq F value
+Time                                                                            2     18     9.1   0.252
+Gender..1.male..2.female                                                        1    864   864.4  23.963
+Yoga.Practice..1.never..2.sometimes..3.regularly                                2    679   339.5   9.412
+Yoga.Instruction.1.No..2.Yes                                                    1     11    11.5   0.318
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly       1   2734  2734.1  75.797
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           1    554   554.0  15.360
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes   2   3290  1644.8  45.598
+Residuals                                                                     227   8188    36.1        
+                                                                                Pr(>F)    
+Time                                                                          0.777768    
+Gender..1.male..2.female                                                      1.86e-06 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly                              0.000118 ***
+Yoga.Instruction.1.No..2.Yes                                                  0.573328    
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly     6.56e-16 ***
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                         0.000118 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes  < 2e-16 ***
+Residuals                                                                                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> print(sumHF)
+                                                                               Df    Sum Sq   Mean Sq F value
+Time                                                                            2 5.380e-07 2.688e-07   2.583
+Gender..1.male..2.female                                                        1 1.832e-06 1.832e-06  17.609
+Yoga.Practice..1.never..2.sometimes..3.regularly                                2 2.940e-07 1.468e-07   1.411
+Yoga.Instruction.1.No..2.Yes                                                    1 1.967e-06 1.967e-06  18.910
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly       1 2.623e-06 2.623e-06  25.212
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           1 4.000e-09 4.500e-09   0.043
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes   2 2.276e-06 1.138e-06  10.940
+Residuals                                                                     227 2.362e-05 1.040e-07        
+                                                                                Pr(>F)    
+Time                                                                            0.0777 .  
+Gender..1.male..2.female                                                      3.89e-05 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly                                0.2461    
+Yoga.Instruction.1.No..2.Yes                                                  2.07e-05 ***
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly     1.04e-06 ***
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           0.8357    
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes 2.91e-05 ***
+Residuals                                                                                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> print(sumSV)
+                                                                               Df Sum Sq Mean Sq F value
+Time                                                                            2  35.11  17.554  13.464
+Gender..1.male..2.female                                                        1  12.86  12.863   9.866
+Yoga.Practice..1.never..2.sometimes..3.regularly                                2  26.00  12.998   9.969
+Yoga.Instruction.1.No..2.Yes                                                    1  13.86  13.864  10.634
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly       1   7.87   7.872   6.038
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           1   0.01   0.007   0.005
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes   2  14.28   7.142   5.478
+Residuals                                                                     227 295.96   1.304        
+                                                                                Pr(>F)    
+Time                                                                          2.98e-06 ***
+Gender..1.male..2.female                                                       0.00191 ** 
+Yoga.Practice..1.never..2.sometimes..3.regularly                              7.08e-05 ***
+Yoga.Instruction.1.No..2.Yes                                                   0.00128 ** 
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly      0.01475 *  
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                          0.94230    
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes  0.00475 ** 
+Residuals                                                                                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> print(sumLF)
+                                                                               Df   Sum Sq   Mean Sq F value
+Time                                                                            2 4.24e-07 2.118e-07   7.351
+Gender..1.male..2.female                                                        1 1.33e-06 1.330e-06  46.169
+Yoga.Practice..1.never..2.sometimes..3.regularly                                2 2.20e-07 1.101e-07   3.820
+Yoga.Instruction.1.No..2.Yes                                                    1 1.59e-07 1.590e-07   5.521
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly       1 6.47e-07 6.468e-07  22.452
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           1 1.62e-07 1.623e-07   5.633
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes   2 4.60e-07 2.302e-07   7.991
+Residuals                                                                     227 6.54e-06 2.880e-08        
+                                                                                Pr(>F)    
+Time                                                                          0.000807 ***
+Gender..1.male..2.female                                                      9.43e-11 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly                              0.023347 *  
+Yoga.Instruction.1.No..2.Yes                                                  0.019650 *  
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly     3.80e-06 ***
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                         0.018454 *  
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes 0.000443 ***
+Residuals                                                                                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> print(sumVLF)
+                                                                               Df    Sum Sq   Mean Sq F value
+Time                                                                            2 1.193e-07 5.965e-08  30.467
+Gender..1.male..2.female                                                        1 5.190e-08 5.192e-08  26.516
+Yoga.Practice..1.never..2.sometimes..3.regularly                                2 6.600e-09 3.320e-09   1.697
+Yoga.Instruction.1.No..2.Yes                                                    1 4.000e-10 3.800e-10   0.192
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly       1 1.560e-08 1.560e-08   7.967
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                           1 2.730e-08 2.729e-08  13.937
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes   2 1.320e-08 6.620e-09   3.380
+Residuals                                                                     227 4.445e-07 1.960e-09        
+                                                                                Pr(>F)    
+Time                                                                          1.90e-12 ***
+Gender..1.male..2.female                                                      5.66e-07 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly                              0.185583    
+Yoga.Instruction.1.No..2.Yes                                                  0.662024    
+Gender..1.male..2.female:Yoga.Practice..1.never..2.sometimes..3.regularly     0.005185 ** 
+Gender..1.male..2.female:Yoga.Instruction.1.No..2.Yes                         0.000239 ***
+Yoga.Practice..1.never..2.sometimes..3.regularly:Yoga.Instruction.1.No..2.Yes 0.035777 *  
+Residuals                                                                                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> sink(NULL)
